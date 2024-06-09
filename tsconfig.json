@@ -1,26 +1,42 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "baseUrl": ".", // Good for relative paths
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Standard library files for browser and latest ECMAScript
+    "allowJs": true, // Allows JavaScript files to be imported into your project
+    "skipLibCheck": true, // Skips type checking of all declaration files (*.d.ts)
+    "strict": true, // Enables all strict type-checking options
+    "noEmit": true, // Do not emit outputs (Next.js handles it)
+    "esModuleInterop": true, // Enables interoperability between CommonJS and ES Modules
+    "module": "ESNext", // Target latest ECMAScript features
+    "moduleResolution": "node", // Resolve modules using Node.js's module resolution strategy
+    "resolveJsonModule": true, // Allows importing .json files
+    "isolatedModules": true, // Ensures each file can be transpiled independently
+    "jsx": "preserve", // Preserves JSX to be transformed by Babel in the build step
+    "incremental": true, // Enables incremental compilation by saving information about the project graph from the last compilation
+    "types": [
+      "node",
+      "next"
+    ], // Includes Node.js and Next.js types
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Ensures proper linting and tooling support for Next.js features
       }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts", // Includes Next.js ambient type definitions
+    "**/*.ts", // Include all TypeScript files
+    "**/*.tsx", // Include all TypeScript React files
+    "lib/**/*.js" // Include specific JavaScript files if they are part of the project
+    ,
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules", // Standard exclude to improve performance
+    ".next" // Exclude Next.js output directory
+  ]
 }
